@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+{% block head %}{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center flex-row">
+    <div class="col-6">
+        <h1>Profile</h1>    
+        <form method="post" action="" enctype="multipart/form-data">
+            <table class="table table-bordered">
+                <tr>
+                    <td><input type="text" class="form-control" name="firstname" value="{{ profile.firstname }}" placeholder="First Name"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" name="lastname" value="{{ profile.lastname }}" placeholder="Last Name"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="file" class="form-control" name="image" placeholder="Image">
+                        {% if profile.image != "" %}
+                        <br>
+                        <img src="{{ SITE_URL }}/images/profiles/{{ profile.image }}" width="100"/>
+                        {% endif %}
+                    </td>
+                </tr>                
+                <tr>
+                    <td><button type="submit" name="submit" class="btn btn-primary">Update Profile</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+{% endblock %}

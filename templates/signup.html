@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block head %}{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center flex-row">
+    <div class="col-6">
+        <h1>Sign up </h1>    
+        <form method="post" action="">
+            <table class="table table-bordered">
+                <tr>
+                    <td><input type="text" class="form-control" name="username" placeholder="Username"></td>
+                </tr>
+                <tr>
+                    <td><input type="password" class="form-control" name="password" placeholder="Password"></td>
+                </tr>
+                <tr>
+                    <td><input type="email" class="form-control" name="email" placeholder="Email"></td>
+                </tr>
+                <tr>
+                    <td>
+                        you are a....<br>
+                        <input type="radio" name="role" value="3"> Client<br>
+                        <input type="radio" checked="checked" name="role" value="4"> Model<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button type="submit" name="submit" class="btn btn-primary">Signup</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+{% endblock %}

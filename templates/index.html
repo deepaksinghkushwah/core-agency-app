@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+{% block content %}
+
+<h1>Profiles</h1>
+{% if searchStr!="" %}
+Search result for: <strong>{{searchStr}}</strong>
+{% endif %}
+{% if users %}
+<div class="row mb-4">
+    {% for user in users %}
+    <div class="col-3">
+        <div class="card">
+            <img src="{{ SITE_URL }}/images/profiles/{{ user.image }}" class="img-thumbnail  card-image-top" style="height: 120px">
+            <div class="card-body">
+                <div class="card-text">{{ user.firstname }} {{ user.lastname }}</div>                
+            </div>
+        </div>
+    </div>
+    {% if loop.index % 4 == 0 %}
+        </div><div class="row mb-4">
+    {% endif %}
+    
+    
+    {% endfor %}    
+</div>
+{% else %}
+<p class="important">
+    Welcome to agency website!!!
+</p>
+{% endif %}
+
+{% endblock %}
+
