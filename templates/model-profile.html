@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
 {% block title %}Index{% endblock %}
+{% block head %}
+{{parent()}}
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+{% endblock %}
 {% block content %}
 
 <h1>Profile: {{ user.firstname }} {{ user.lastname}}</h1>
@@ -11,6 +17,22 @@
         <b>Name: </b>{{ user.firstname }} {{ user.lastname }}<br>
         <b>About: </b>{{ user.about }}
         <h3>Gallery</h3>
+        {% if images %}
+        <div class="row">
+            {% for image in images %}
+            <div class="col-3 mb-4">
+
+                <a href="{{ SITE_URL }}/images/gallery/{{ image.image }}" data-fancybox="gallery" >
+                    <img src="{{ SITE_URL }}/images/gallery/{{ image.image }}" class="img-thumbnail card-image-top" style="height: 120px">    
+                </a>
+
+            </div>
+            {% endfor %}
+        </div>
+
+        {% else %}
+        No image for gallery
+        {% endif %}
     </div>
 </div>
 {% endblock %}

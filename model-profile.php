@@ -18,5 +18,17 @@ $user = [
     'about' => $data->about,
 ];
 
+$sql = "SELECT * FROM gallery where user_id = '".$_SESSION['user']['id']."'";
+$res  =$db->link->query($sql);
+$images = null;
+if($db->link->affected_rows > 0){
+    while($data = $res->fetch_object()){
+        $images[] = [            
+            'id' => $data->id,
+            'image' => $data->image,
+        ];
+    }
+}
 
-echo $twig->render("model-profile.html", ['user' => $user]);
+
+echo $twig->render("model-profile.html", ['user' => $user,'images' => $images]);
