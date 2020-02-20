@@ -6,6 +6,7 @@ define('DB_USER','root');
 define('DB_PASS','deepak');
 define('ROOT_PATH', dirname(__FILE__));
 define('SITE_URL', 'http://agency.local');
+define('ALLOWED_EXT', ['png', 'jpg', 'jpeg', 'gif']);
 include_once './classes/Database.php';
 include_once './classes/Flash.php';
 include_once './vendor/autoload.php';

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery{% endblock %}
+{% block head %}
+{{parent()}}
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+{% endblock %}
+{% block content %}
+<h1>Gallery</h1>            
+<div class="row">
+    <div class="col-3">    
+        <form method="post" action="" enctype="multipart/form-data">
+            <table class="table table-bordered">                
+                <tr>
+                    <td>
+                        <input type="file" class="form-control" name="image" placeholder="Image">                        
+                    </td>
+                </tr>                
+                <tr>
+                    <td><button type="submit" name="submit" class="btn btn-                primary">Upload Image</button></td>
+                </tr>
+            </table>
+        </form>
+    </div                    >
+    <div class="col-9">
+        {% if images %}
+        <div class="row">
+            {% for image in images %}
+            <div class="col-3 mb-4">
+
+                <a href="{{ SITE_URL }}/images/gallery/{{ image.image }}" data-fancybox="gallery" >
+                    <img src="{{ SITE_URL }}/images/gallery/{{ image.image }}" class="img-thumbnail card-image-top" style="height: 120px">    
+                </a>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    No image for gallery
+    {% endif %}
+</div>
+{% endblock %}

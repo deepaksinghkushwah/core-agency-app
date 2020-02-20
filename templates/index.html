@@ -11,18 +11,22 @@ Search result for: <strong>{{searchStr}}</strong>
 <div class="row mb-4">
     {% for user in users %}
     <div class="col-3">
+    <a href="{{ SITE_URL }}/model-profile.php?id={{ user.id }}">    
         <div class="card">
-            <img src="{{ SITE_URL }}/images/profiles/{{ user.image }}" class="img-thumbnail  card-image-top" style="height: 120px">
-            <div class="card-body">
-                <div class="card-text">{{ user.firstname }} {{ user.lastname }}</div>                
-            </div>
+            
+                <img src="{{ SITE_URL }}/images/profiles/{{ user.image }}" class="img-thumbnail  card-image-top" style="height: 120px">
+                <div class="card-body">
+                    <div class="card-text">{{ user.firstname }} {{ user.lastname }}</div>                
+                </div>
+            
         </div>
+    </a>
     </div>
     {% if loop.index % 4 == 0 %}
-        </div><div class="row mb-4">
+</div><div class="row mb-4">
     {% endif %}
-    
-    
+
+
     {% endfor %}    
 </div>
 {% else %}

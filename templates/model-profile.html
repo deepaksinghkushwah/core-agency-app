@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+{% block content %}
+
+<h1>Profile: {{ user.firstname }} {{ user.lastname}}</h1>
+
+<div class="row">
+    <div class="col-3"><img src="{{ SITE_URL }}/images/profiles/{{ user.image }}" class="img-thumbnail  card-image-top"></div>
+    <div class="col-9">
+        <b>Name: </b>{{ user.firstname }} {{ user.lastname }}<br>
+        <b>About: </b>{{ user.about }}
+        <h3>Gallery</h3>
+    </div>
+</div>
+{% endblock %}
+

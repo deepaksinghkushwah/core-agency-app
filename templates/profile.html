@@ -17,6 +17,9 @@
                     <td><input type="text" class="form-control" name="lastname" value="{{ profile.lastname }}" placeholder="Last Name"></td>
                 </tr>
                 <tr>
+                    <td><textarea class="form-control" name="about" placeholder="About me">{{ profile.about }}</textarea></td>
+                </tr>
+                <tr>
                     <td>
                         <input type="file" class="form-control" name="image" placeholder="Image">
                         {% if profile.image != "" %}
