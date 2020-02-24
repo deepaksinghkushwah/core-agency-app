@@ -25,21 +25,15 @@ if (isset($_POST['submit'])) {
     $res = $db->link->query("SELECT * FROM `profile` WHERE user_id = '" . $_SESSION['user']['id'] . "'");
     if ($db->link->affected_rows > 0) {
         if ($newName == null) {
-            $sql = "UPDATE `profile` SET "
-                    . "firstname = '$firstname', "
-                    . "lastname = '$lastname', "
-                    . "about = '$about', "
-                    . "user_id = '" . $_SESSION['user']['id'] . "' "
-                    . "WHERE user_id = '" . $_SESSION['user']['id'] . "'";
-        } else {
-            $sql = "UPDATE `profile` SET "
-                    . "firstname = '$firstname', "
-                    . "lastname = '$lastname', "
-                    . "about = '$about', "
-                    . "user_id = '" . $_SESSION['user']['id'] . "', "
-                    . "image = '$newName' "
-                    . "WHERE user_id = '" . $_SESSION['user']['id'] . "'";
+            $newName = "noimg.jpg";
         }
+        $sql = "UPDATE `profile` SET "
+                . "firstname = '$firstname', "
+                . "lastname = '$lastname', "
+                . "about = '$about', "
+                . "user_id = '" . $_SESSION['user']['id'] . "', "
+                . "image = '$newName' "
+                . "WHERE user_id = '" . $_SESSION['user']['id'] . "'";
     } else {
         if ($newName == null) {
             $newName = 'noimg.jpg';
@@ -57,7 +51,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['msg']['success'][] = "Profile updated";
         header('location: profile.php');
         exit;
-    } 
+    }
 }
 
 
