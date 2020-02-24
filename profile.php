@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
     $res = $db->link->query("SELECT * FROM `profile` WHERE user_id = '" . $_SESSION['user']['id'] . "'");
     if ($db->link->affected_rows > 0) {
         if ($newName == null) {
-            $newName = "noimg.jpg";
+            $newName = $res->fetch_object()->image;
         }
         $sql = "UPDATE `profile` SET "
                 . "firstname = '$firstname', "
