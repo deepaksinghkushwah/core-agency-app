@@ -21,7 +21,7 @@ if($db->link->affected_rows > 0){
             'firstname' => $data->firstname,
             'lastname' => $data->lastname,
             'image' => $data->image,
-            'id' => $data->id,
+            'id' => $data->user_id,
         ];
     }
 }
